@@ -23,7 +23,8 @@ function Login() {
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
-    await signIn(email, password);
+    await signUp(email, password);
+    alert("Registered");
   };
 
   console.log(login);
@@ -59,7 +60,7 @@ function Login() {
         onSubmit={handleSubmit(onSubmit)}
         className="relative mt-24 space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14"
       >
-        <h1 className="text-4xl font-semibold">Sign In</h1>
+        <h1 className="text-4xl font-semibold">Sign Up</h1>
         <div className="space-y-4">
           <label className="inline-block w-full">
             <input
@@ -93,14 +94,14 @@ function Login() {
           className="w-full rounded bg-[#e50914] py-3 font-semibold"
           onClick={() => setLogin(true)}
         >
-          Sign In
+          Sign Up
         </button>
 
         <div className="text-[gray]">
-          New to Netflix?{" "}
-          <Link href="/register">
+          Already have an account?{" "}
+          <Link href="/login">
             <button type="submit" className="text-white hover:underline">
-              Sign up now
+              Sign in now
             </button>
           </Link>
         </div>
