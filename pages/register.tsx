@@ -1,11 +1,10 @@
-import { SortAscendingIcon } from "@heroicons/react/solid";
-import { chownSync } from "fs";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
+import axios from "axios";
 
 interface Inputs {
   email: string;
@@ -23,11 +22,14 @@ function Login() {
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
+    const obj = { email, password };
+    const data = axios.post(
+      "https://62f17d58b1098f1508018e86.mockapi.io/pass",
+      obj
+    );
     await signUp(email, password);
-    alert("Registered");
+    alert("Вы зарегистрировались");
   };
-
-  console.log(login);
 
   return (
     <div className="relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">

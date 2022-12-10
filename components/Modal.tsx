@@ -75,6 +75,7 @@ function Modal() {
             playing
             muted={muted}
           />
+
           <div className="absolute bottom-10 flex w-full items-center justify-between">
             <div className="flex space-x-2 w-full justify-between px-10">
               <div className="flex space-x-2 w-full">
